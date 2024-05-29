@@ -8,11 +8,17 @@ class Controller:
         # the model, which implements the logic of the program and holds the data
         self._model = model
 
-        self._listYear = []
-        self._listCountry = []
+        self._listYear = [2015, 2016, 2017, 2018]
+        self._listCountry = self._model._allCountries
 
     def fillDD(self):
-        pass
+        # Riempio ddyear
+        for y in self._listYear:
+            self._view.ddyear.options.append(ft.dropdown.Option(str(y)))
+
+        # Riempio ddcountry
+        for c in self._listCountry:
+            self._view.ddcountry.options.append(ft.dropdown.Option(str(c)))
 
 
     def handle_graph(self, e):
