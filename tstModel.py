@@ -1,3 +1,7 @@
+from datetime import datetime
+
+import networkx as nx
+
 from model.model import Model
 
 model = Model()
@@ -11,3 +15,9 @@ print(*model._grafo.edges, sep='\n')
 listaRetailerVolume = model.getVolumeRetailer()
 for ret, vol in listaRetailerVolume:
     print(ret, vol)
+
+tic = datetime.now()
+camminoOttimo, pesoOttimo = model.getBestPath(5)
+print(f"tempo: {(datetime.now() - tic)}")
+print(f"peso = {pesoOttimo}")
+print(*camminoOttimo, sep='\n')
